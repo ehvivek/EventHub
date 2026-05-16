@@ -33,14 +33,16 @@ export default function Signup() {
     }
 
     setLoading(true);
-    const { error: err } = await signUp(email, password, name);
+    const { data, error: err } = await signUp(email, password, name);
     
     if (err) {
       if (err.message.includes('User already registered') || err.message.includes('already exists')) {
-        setError('This email is already registered. If you joined using Google before, please click "Continue with Google" below to log in.');
+        setError('This email is already registered. If you joined using Google before, please click "Continue with Google".');
       } else {
         setError(err.message);
       }
+    } else if (data?.user?.identities && data.user.identities.length === 0) {
+      setError('This email is already registered. If you joined using Google before, please click "Continue with Google" below to log in.');
     } else {
       navigate(from, { replace: true });
     }
