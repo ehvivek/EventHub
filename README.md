@@ -230,10 +230,4 @@ Copyright (c) 2026 Vivek (https://github.com/ehvivek)
 - **Email:** ev3nthub@gmail.com
 - **Project:** [EventHub](https://github.com/ehvivek/EventHub)
 
----
 
-<div align="center">
-
-**⚡ Built with ❤️ by [Vivek](https://github.com/ehvivek)**
-
-</div>
