@@ -73,62 +73,72 @@ export default function OrbitAnimation() {
 
         {/* 📅 Event Calendar — top-left */}
         <motion.div
-          className="absolute top-[2%] left-[0%] hidden md:block z-20"
+          className="absolute top-[2%] left-[-5%] sm:left-[0%] z-20"
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.5 }}
           whileHover={{ scale: 1.05 }}
         >
-          <FeatureCard icon={calendarIcon} title="Event Calendar" desc="Manage your events in one place" />
+          <div className="scale-[0.65] sm:scale-80 md:scale-100 origin-top-left">
+            <FeatureCard icon={calendarIcon} title="Event Calendar" desc="Manage your events in one place" />
+          </div>
         </motion.div>
 
         {/* ✉️ Custom Invites — left middle */}
         <motion.div
-          className="absolute top-[45%] left-[0%] hidden md:block z-20"
+          className="absolute top-[45%] left-[-8%] sm:left-[0%] z-20"
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.5 }}
           whileHover={{ scale: 1.05 }}
         >
-          <FeatureCard icon={mailIcon} title="Custom Invites" desc="Create beautiful invites in seconds" />
+          <div className="scale-[0.65] sm:scale-80 md:scale-100 origin-left">
+            <FeatureCard icon={mailIcon} title="Custom Invites" desc="Create beautiful invites in seconds" />
+          </div>
         </motion.div>
 
         {/* 🎵 Music Fest — top-right */}
         <motion.div
-          className="absolute top-[0%] right-[5%] hidden md:block z-20"
+          className="absolute top-[0%] right-[0%] sm:right-[5%] z-20"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.5 }}
           animate={{ y: [0, -4, 0] }}
         >
-          <MiniCard icon={musicIcon} title="Music Fest" />
+          <div className="scale-[0.65] sm:scale-80 md:scale-100 origin-top-right">
+            <MiniCard icon={musicIcon} title="Music Fest" />
+          </div>
         </motion.div>
 
         {/* 👥 RSVP Tracking — right upper */}
         <motion.div
-          className="absolute top-[25%] right-[0%] hidden md:block z-20"
+          className="absolute top-[25%] right-[-5%] sm:right-[0%] z-20"
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.5 }}
           whileHover={{ scale: 1.05 }}
         >
-          <FeatureCard icon={usersIcon} title="RSVP Tracking" desc="Track guests and responses easily" />
+          <div className="scale-[0.65] sm:scale-80 md:scale-100 origin-right">
+            <FeatureCard icon={usersIcon} title="RSVP Tracking" desc="Track guests and responses easily" />
+          </div>
         </motion.div>
 
         {/* 📍 Guest Management — bottom-right */}
         <motion.div
-          className="absolute bottom-[8%] right-[2%] hidden md:block z-20"
+          className="absolute bottom-[8%] right-[0%] sm:right-[2%] z-20"
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8, duration: 0.5 }}
           whileHover={{ scale: 1.05 }}
         >
-          <FeatureCard icon={mapPinIcon} title="Guest Management" desc="Know who's coming and stay organized" />
+          <div className="scale-[0.65] sm:scale-80 md:scale-100 origin-bottom-right">
+            <FeatureCard icon={mapPinIcon} title="Guest Management" desc="Know who's coming and stay organized" />
+          </div>
         </motion.div>
       </div>
     </div>
