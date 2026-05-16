@@ -26,10 +26,24 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long.');
+      return;
+    }
+
     setLoading(true);
     const { error: err } = await signUp(email, password, name);
-    if (err) setError(err.message);
-    else navigate(from, { replace: true });
+    
+    if (err) {
+      if (err.message.includes('User already registered') || err.message.includes('already exists')) {
+        setError('This email is already registered. If you joined using Google before, please click "Continue with Google" below to log in.');
+      } else {
+        setError(err.message);
+      }
+    } else {
+      navigate(from, { replace: true });
+    }
     setLoading(false);
   };
 
