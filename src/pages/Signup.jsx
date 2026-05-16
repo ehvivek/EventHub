@@ -40,6 +40,8 @@ export default function Signup() {
     if (err) {
       if (err.message.includes('User already registered') || err.message.includes('already exists')) {
         setError('This email is already registered. If you joined using Google before, please click "Continue with Google".');
+      } else if (err.message.toLowerCase().includes('rate limit')) {
+        setError('Email rate limit exceeded. Please try signing up via Google below.');
       } else {
         setError(err.message);
       }
