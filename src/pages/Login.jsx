@@ -27,8 +27,17 @@ export default function Login() {
     setError('');
     setLoading(true);
     const { error: err } = await signIn(email, password);
-    if (err) setError(err.message);
-    else navigate(from, { replace: true });
+    
+    if (err) {
+      if (err.message === 'Email not confirmed') {
+        setError('Please check your email and click the confirmation link to sign in.');
+      } else {
+        setError(err.message);
+      }
+    } else {
+      navigate(from, { replace: true });
+    }
+    
     setLoading(false);
   };
 

@@ -15,6 +15,7 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState('');
+  const [successMsg, setSuccessMsg] = useState('');
   const [loading, setLoading] = useState(false);
   const { signUp, signInWithGoogle } = useAuth();
   const { isDark } = useTheme();
@@ -26,6 +27,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccessMsg('');
     
     if (password.length < 6) {
       setError('Password must be at least 6 characters long.');
@@ -44,7 +46,7 @@ export default function Signup() {
     } else if (data?.user?.identities && data.user.identities.length === 0) {
       setError('This email is already registered. If you joined using Google before, please click "Continue with Google" below to log in.');
     } else {
-      navigate(from, { replace: true });
+      setSuccessMsg('Account created! Please check your email to confirm your account before signing in.');
     }
     setLoading(false);
   };
@@ -79,6 +81,7 @@ export default function Signup() {
         <p className="text-sm text-center text-gray-500 dark:text-gray-400 mb-6">Join thousands of event organizers</p>
 
         {error && <p className="text-sm text-red-500 bg-red-50 dark:bg-red-900/20 p-3 rounded-xl mb-4">{error}</p>}
+        {successMsg && <p className="text-sm text-green-600 bg-green-50 dark:bg-green-900/20 p-3 rounded-xl mb-4">{successMsg}</p>}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="relative">
